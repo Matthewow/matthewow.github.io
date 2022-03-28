@@ -20,6 +20,10 @@
         padding: 5vh 10vw;
         color: #121314;
       }
+      img {
+        max-width: 80%;
+      }
+
       h1 {
         font-size: 4.5em;
         font-weight: 500;
@@ -80,18 +84,50 @@
         box-shadow: 1px 1px 6px #ddd;
       }
       .readmore {
-        /* background-color: rgb(128, 96, 96); */
+        background-color: rgb(128, 96, 96);
         border-radius: 3px;
         padding: 2px 0.3em;
         /* padding-right: 0.3em; */
         color: #fff;
-        /* box-shadow: 1px 1px 6px #ddd;
-        font-size: 0.8em; */
+        box-shadow: 1px 1px 6px #ddd;
+        font-size: 0.8em;
       }
       .date .duration {
         color: #aaa;
         box-shadow: none;
       }
+
+      .swing {
+        /* display: none; */
+        perspective: 100px;
+        visibility: hidden;
+        opacity: 0;
+        /* transform: rotateX(-90deg);
+        transition: all 0.5s cubic-bezier(.36,-0.64,.34,1.76); */
+        transition: all 0.4s ease-out;
+        overflow: hidden;
+        line-height: 0em;
+        list-style: none;
+        height: 0;
+        margin: 0;
+        padding: 0;
+      }
+
+      .swing.show {
+        /* display: block; */
+        height: auto;
+        margin: 1em;
+        padding: 1em;
+        border-radius: 20px;
+        visibility: visible;
+        opacity: 1;
+        background-color: rgb(242, 242, 242);
+
+        font-size: 1em;
+        font-weight: 300;
+        line-height: 1.2;
+      }
+      
     </style>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 
@@ -118,36 +154,72 @@
     <div  class="block" style="margin-top: 5%;">
 
        <h3 >Education</h3>
-      <p> <b>Master of Science </b> at <a href="https://www.hku.hk/">The University of Hong Kong</a> <span class="readmore"></span> </p>
+      <p> <b>Master of Science </b> at <a href="https://www.hku.hk/">The University of Hong Kong</a> <span class="readmore" onclick="toggle(this, 'hku')">more</span></p>
       <p><span class="date">2021.08 - <span class="duration"> 2022.12</span></span>  Major: Computer Science </p>
-      <p> <b>Bachelor of Engineering </b> at <a href="https://www.cityu.edu.hk/">City University of Hong Kong</a> <span class="readmore"></span></p>
+      <div id = "hku" class="swing"> 
+        • Stream in Multimedia Computing <br>
+        • Supervised by Dr. Chim, Tat Wing
+      </div>
+
+      <p> <b>Bachelor of Engineering </b> at <a href="https://www.cityu.edu.hk/">City University of Hong Kong</a> <span class="readmore" onclick="toggle(this, 'cityu')">more</span></p>
       <p><span class="date">2017.08 - <span class="duration"> 2020.12</span></span>  Major: Computer Engineering  </p>
-      <p> <span class="date">2018.05 -<span class="duration"> 2018.08</span></span> Exchange at <a href="https://www.uhk.cz/en">University of Hradec Kralove</a> <span class="readmore"></span></p>
+      <div id = "cityu" class="swing"> 
+        Awards: <br>
+        • Dean's list of College of Engineering <br>
+        • CityU Full Tuition Scholarship, 2016 - 2020<br>
+        • Program Representative of Computer and Data Engineering<br>
+        • Chan Wing Fui Scholarship, 2018 - 2019<br>
+        • First Runner-up in 'Smarter life aided by robots' Competition, 2017
+      </div>
+      <p> <span class="date">2018.05 -<span class="duration"> 2018.08</span></span> Exchange at <a href="https://www.uhk.cz/en">University of Hradec Kralove</a> <span class="readmore" onclick="toggle(this, 'uhk')">more</span></p>
+      <div id = "uhk" class="swing"> 
+        Main Courses: <br>
+        • Android Application Development <br>
+        • IoT Technologies
+      </div>
       <p><span class="date">2016.08 - <span class="duration"> 2017.08</span></span>  Major: Civil Engineering  </p>
+      
     
     </div>
 
     <div   class="block" style="margin-top: 3%;">
 
        <h3>Experience</h3>
-      <p> <b>Software Developer</b> at <a href="https://veservecompany.com/">Veserve Company Limited</a> <span class="readmore"></span> </p>
-      <p><span class="date">2021.08 - <span class="duration"> 2022.06</span></span>  
-      
-      </p>
 
-      <br>
 
-      <p> <b>Technical Assistant </b> at <a href="http://www.ee.cityu.edu.hk/~yxyuan/">AIM Group</a>, City University of Hong Kong, supervised 
-        by <a href="http://www.cityu.edu.hk/stfprofile/yixuyuan.htm">Dr.Yuan Yixuan</a> <span class="readmore"></span> </p>
-      <p><span class="date">2020.04 - <span class="duration"> 2020.10</span></span>  to be done  </p>
+      <p> <b>Software Developer</b> </p>
+      <p><span class="date">2020.08 - <span class="duration"> 2021.06</span></span>  at <a href="https://veservecompany.com/">Veserve Company Limited</a> <span class="readmore" onclick="toggle(this, 'veserve')">more</span> </p>
 
-      <br>
+      <div id = "veserve" class="swing"> 
+        - Coded a web-based Video Conferencing solution with WebRTCand Janus Server, which also supports SIP and some features such as virtual background,co-browsing, and screen sharing. <br>
+        - Designed and developed a signaling system as a proxy server for load balancing. Integrate the Video Conference Application with JWT authentication into the Client's Customer Relationship management system. <br>
+        - Developed an image key information extraction system with functionality supporting multi-language Optical Character Recognition, fuzzy search, and language model based Named-entity recognition.
+      </div>
 
-      <p> <b>Research Assistant </b> at <a href="http://www.ee.cityu.edu.hk/~yxyuan/">LIRMM</a>(Laboratoire d'Informatique, de Robotique et de Microélectronique de Montpellier), CNRS, France, 
-        supervised by <a href="http://www.lirmm.fr/~gamatie/"> Dr.Gamatié</a> <span class="readmore"></span></p>
-      <p><span class="date">2019.05 - <span class="duration"> 2019.08</span></span>  to be done  </p>
 
-      <br>
+
+      <p> <b>Technical Assistant </b> </p>
+      <p><span class="date">2020.04 - <span class="duration"> 2020.10</span></span> at <a href="http://www.ee.cityu.edu.hk/~yxyuan/">AIM Group</a>, City University of Hong Kong, supervised 
+        by <a href="http://www.cityu.edu.hk/stfprofile/yixuyuan.htm">Dr.Yuan Yixuan</a> <span class="readmore" onclick="toggle(this, 'yuan')">more</span> </p>
+
+      <div id = "yuan" class="swing"> 
+        <a href="https://www.cityu.edu.hk/stfprofile/54780588.htm">Profile</a> <br>
+        - Performed data processing, visualization, and edge extracting of 3D medical images. <br>
+        - Built a <a href="http://www.ee.cityu.edu.hk/~yxyuan/demo/demo_page.html">live demo</a> website for comparison among different cutting-edge mainstream 3D image segmentation algorithms. 
+      </div>
+
+
+
+
+      <p> <b>Research Assistant </b> </p>
+
+      <p><span class="date">2019.05 - <span class="duration"> 2019.08</span></span> at <a href="https://www.lirmm.fr/lirmm-en/">LIRMM</a>(Laboratoire d'Informatique, de Robotique et de Microélectronique de Montpellier), CNRS, France, 
+        supervised by <a href="http://www.lirmm.fr/~gamatie/"> Dr.Gamatié</a> <span class="readmore" onclick="toggle(this, 'lirmm')">more</span></p>
+
+      <div id = "lirmm" class="swing"> 
+        - Performed data pre-processing of GAN model for topologies generation.  <br>
+        - Conducted Model configuration and data visualization over a multi-core system optimization research project.  
+      </div>
 
       <p> <b>Teaching Assistant </b> at <a href="https://www.cityu.edu.hk/">City University of Hong Kong</a></p>
       <p><span class="date">2018 Fall</span> <span class="date">2019 Sp</span> <span class="date">2020 Sp</span> <a href="https://www.cityu.edu.hk/catalogue/ug/201415/course/EE2331.htm">Data Structure and Algorithm </a> </p>
@@ -162,11 +234,11 @@
       <h3 >Skills</h3>
       <p> <b>Languages</b> </p>
       <p> ★★★ Python  </p>
-      <p> ★★☆ C++, Javascript, Swift </p>
+      <p> ★★☆ Javascript, Swift, C++ </p>
       <p> ★☆☆ Java, C </p>
 
       <p> <b>Other</b> </p>
-      <p>HTML, CSS, MySQL, MongoDB, Xcode, GIT, Flask, Shell, Nginx</p>
+      <p>HTML, CSS, MySQL, MongoDB, GIT, Flask, Shell, Nginx, VSCode, Xcode</p>
     
     </div>
 
@@ -181,26 +253,55 @@
 
     <div   class="block" style="margin-top: 3%;">
 
-       <h3>Sports and Art </h3>
-      <p> <b>- Distance Running </b> <span class="readmore"></span></p>
-      <p> <b>- Table Tennis </b> <span class="readmore"></span></p>
-      <p> <b>- Chinese Calligraphy </b> <span class="readmore"></span></p>
+       <h3>Spare Time </h3>
+      <p> <b>- Distance Running </b> </p>
+      <p> <b>- Table Tennis </b> </p>
+      <p> <b>- Chinese Calligraphy </b> </p>
+      <p> <b>- Sketch for fun :) </b> </p>
+      <p><span class="readmore" onclick="toggle(this, 'running')">more</span></p>
+      <div id = "running" class="swing">
+        <img src="./img/running_2.jpeg" alt="Standard Chartered Marathon 10km">
+        <img src="./img/tabletennis.jpg" alt="Table Tennis inter-hall Competition">
+        <img src="./img/calligraphy.jpeg" alt="Chinese Calligraphy ">
+        <img src="./img/sketching.jpeg" alt="Sketch for fun ">
+      </div>
     
     </div>
 
     <div   class="block" style="margin-top: 3%;">
 
        <h3>Services</h3>
-      <p> <b>Vice President</b> at <a href="https://www.cssahk.org/">Hong Kong Mainland Students Association</a> </p>
-      <p><span class="date">2021.08 - <span class="duration"> 2022.12</span></span>  to be done </p>
+      <p> <b>Vice President</b>  </p>
+      <p><span class="date">2021.08 - <span class="duration"> 2022.12</span></span> at <a href="https://www.cssahk.org/">Hong Kong Mainland Students Association</a></p>
 
-      <p> <b>President</b> at <a href="https://www.cssaug.org/">CSSAUG</a> at CityUHK <span class="readmore"></span></p>
-      <p><span class="date">2021.08 - <span class="duration"> 2022.12</span></span>  to be done </p>
+      <p> <b>President</b> </p>
+      <p><span class="date">2021.08 - <span class="duration"> 2022.12</span></span> at <a href="https://www.cssaug.org/">CSSAUG</a> at CityUHK</p>
 
-      <p> <b>Residence Tutor</b> at <a href="https://www7.cityu.edu.hk/sro/hall5/">CityU Hall 5 <span class="readmore"></span></a> </p>
-      <p><span class="date">2021.08 - <span class="duration"> 2022.12</span></span>  to be done </p>
-    
+      <p> <b>Residence Tutor</b> </p>
+      <p><span class="date">2021.08 - <span class="duration"> 2022.12</span></span> at <a href="https://www7.cityu.edu.hk/sro/hall5/">CityU Hall 5</a></p>
+
+      <p><span class="readmore" onclick="toggle(this, 'services')">more</span></p>
+        <div id = "services" class="swing">
+          <img src="./img/cssahk.jpeg" alt="cssahk">
+          <img src="./img/cssaug.jpeg" alt="cssaug">
+          <img src="./img/hall5.jpeg" alt="hall5">
+        </div>
     </div>
 
   </body>
 </html>
+
+<script>
+  function toggle(e, name){
+    console.log(e)
+    var content = document.getElementById(name)
+    if(e.innerHTML == "more"){
+      content.className = "swing show"
+      e.innerHTML = "less"
+    }
+    else{
+      content.className = "swing"
+      e.innerHTML = "more"
+    }
+  }
+</script>
